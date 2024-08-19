@@ -1,9 +1,13 @@
-/* Estilos para el menú */
+/* Estilos del menú */
+
+
 .cabeza-menu ul,
 .cuerpo-menu ul {
     list-style-type: none;
     padding: 0;
+    text-align: right;
 }
+
 
 .cabeza-menu ul li,
 .cuerpo-menu ul li {
@@ -15,7 +19,6 @@
 .cuerpo-menu ul li a {
     text-decoration: none;
     color: #E2E2B6;
-    position: relative; /* Necesario para el posicionamiento del círculo */
 }
 
 .cabeza-menu ul li a:hover,
@@ -23,13 +26,4 @@
     color: #6EACDA;
 }
 
-/* Estilos del círculo */
-.circle {
-    position: absolute;
-    width: 50px; /* Tamaño del círculo */
-    height: 50px; /* Tamaño del círculo */
-    border-radius: 50%; /* Hace que sea un círculo */
-    background: rgba(255, 0, 0, 0.3); /* Color y opacidad del círculo */
-    pointer-events: none; /* Asegura que el círculo no interfiera con la interacción del usuario */
-    transition: background 0.3s ease; /* Transición para el color de fondo */
-}
+
