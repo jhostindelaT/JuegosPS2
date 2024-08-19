@@ -1,29 +1,31 @@
 /* Estilos del menú */
-
-
 .cabeza-menu ul,
 .cuerpo-menu ul {
     list-style-type: none;
     padding: 0;
     text-align: right;
+    font-size: 20px; /* Ajusta el tamaño según sea necesario */
+    user-select: none;
 }
-
 
 .cabeza-menu ul li,
 .cuerpo-menu ul li {
     display: inline;
     margin: 10px; /* Ajusta según sea necesario */
+    font-size: 20px; /* Ajusta el tamaño según sea necesario */
+    user-select: none;
+    cursor: default; /* Asegúrate de que el cursor sea default por defecto */
 }
 
-.cabeza-menu ul li a,
-.cuerpo-menu ul li a {
-    text-decoration: none;
-    color: #E2E2B6;
+/* Solo cuando el texto es seleccionable, cambiar el cursor */
+.cabeza-menu ul li.selectable,
+.cuerpo-menu ul li.selectable {
+    user-select: text;
+    cursor: pointer;
 }
 
-.cabeza-menu ul li a:hover,
-.cuerpo-menu ul li a:hover {
+.cabeza-menu ul li:hover,
+.cuerpo-menu ul li:hover {
     color: #6EACDA;
+    cursor: pointer; /* Asegúrate de que el cursor cambie a pointer al pasar sobre el texto */
 }
-
-
