@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Encabezado-Defecto';
+    src: url('font/New_Amsterdam/NewAmsterdam-Regular.ttf')format('trueType');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body{
+    font-family: 'Encabezado-Defecto';
+    background-color: #021526;
+}
