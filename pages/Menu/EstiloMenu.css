@@ -17,15 +17,21 @@
     cursor: default; /* Asegúrate de que el cursor sea default por defecto */
 }
 
-/* Solo cuando el texto es seleccionable, cambiar el cursor */
-.cabeza-menu ul li.selectable,
-.cuerpo-menu ul li.selectable {
-    user-select: text;
+/*Botones*/
+.button-navbar {
+    color: #E2E2B6;
+    width: 15vh;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
+    height: 10vh;
 }
 
-.cabeza-menu ul li:hover,
-.cuerpo-menu ul li:hover {
-    color: #6EACDA;
-    cursor: pointer; /* Asegúrate de que el cursor cambie a pointer al pasar sobre el texto */
+.button-navbar:hover {
+    background-color: #6EACDA;
+}
+
+/* Estilo para el botón activo */
+.button-navbar.active {
+    background-color: #6EACDA;
 }

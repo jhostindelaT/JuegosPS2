@@ -12,8 +12,18 @@ const loadView = (page) => {
         .then(response => response.text())
         .then(data => {
             container.innerHTML = data;
+            setActiveButton(page); // Llama a la función para establecer el botón activo
         })
         .catch(error => console.error(`Error al cargar ${page}:`, error));
+};
+
+// Función para establecer el botón activo
+const setActiveButton = (page) => {
+    const buttons = document.querySelectorAll('.button-navbar');
+    buttons.forEach(button => {
+        button.classList.remove('active');
+    });
+    document.querySelector(`.${page.toUpperCase()} .button-navbar`).classList.add('active');
 };
 
 // Se muestra el menú
