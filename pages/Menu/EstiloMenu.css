@@ -33,5 +33,6 @@
 
 /* Estilo para el botón activo */
 .button-navbar.active {
+    color: #021526;
     background-color: #6EACDA;
 }
