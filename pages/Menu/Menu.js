@@ -6,33 +6,32 @@ const pages = {
 };
 
 // Función para cargar la vista condicionalmente
-const loadView = (page) => {
+const loadView = async (page) => {
     const container = document.getElementById("elementos");
-    fetch(pages[page])
-        .then(response => response.text())
-        .then(data => {
-            container.innerHTML = data;
-            setActiveButton(page);
+    try {
+        const response = await fetch(pages[page]);
+        const data = await response.text();
+        container.innerHTML = data;
+        setActiveButton(page);
 
-            // Verifica que el contenido se haya cargado
-            console.log(`Contenido de ${page} cargado`);
+        // Verifica que el contenido se haya cargado
+        console.log(`Contenido de ${page} cargado`);
 
-            // Cargar el script específico de la página si existe
-            if (page === 'home') {
-                const script = document.createElement('script');
-                script.src = 'pages/cuerpo/home/home.js';
-                script.onload = () => {
-                    console.log('Script home.js cargado y ejecutado.');
-                    // Aquí puedes añadir cualquier lógica adicional que necesites ejecutar después de cargar el script
-                };
-                document.body.appendChild(script);
-            }
-        })
-        .catch(error => console.error(`Error al cargar ${page}:`, error));
+        // Cargar el script específico de la página si existe
+        if (page === 'home') {
+            const script = document.createElement('script');
+            script.src = 'pages/cuerpo/home/home.js';
+            script.async = true; // Permite que el script se cargue de manera asíncrona
+            document.body.appendChild(script);
+        }
+        
+    } catch (error) {
+        console.error(`Error al cargar ${page}:`, error);
+    }
 };
 
 // Función para establecer el botón activo
-const setActiveButton = (page) => {
+const setActiveButton = async (page) => {
     const buttons = document.querySelectorAll('.button-navbar');
     buttons.forEach(button => {
         button.classList.remove('active');
@@ -41,9 +40,10 @@ const setActiveButton = (page) => {
 };
 
 // Se muestra el menú
-fetch('pages/Menu/Menu.html')
-    .then(response => response.text())
-    .then(data => {
+const loadMenu = async () => {
+    try {
+        const response = await fetch('pages/Menu/Menu.html');
+        const data = await response.text();
         document.getElementById("menu").innerHTML = data;
 
         // Ahora que el menú está en el DOM, podemos obtener los elementos y agregar los event listeners
@@ -60,10 +60,10 @@ fetch('pages/Menu/Menu.html')
         });
 
         // Cargar la vista inicial
-        loadView('home'); 
-    })
-    .catch(error => console.error('Error al cargar el menú:', error));
-    
-    document.addEventListener('DOMContentLoaded', function() {
+        await loadView('home');
+    } catch (error) {
+        console.error('Error al cargar el menú:', error);
+    }
+};
 
-        })
+document.addEventListener('DOMContentLoaded', loadMenu);

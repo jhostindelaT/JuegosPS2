@@ -10,22 +10,26 @@
     background-color: blue;
     height: 80%;
     display: flex;
-    width: 70%;
-    align-items: center; /* Centra la imagen verticalmente */
-    justify-content: center; /* Centra la imagen horizontalmente */
-    overflow: hidden; /* Evita que el contenido sobresalga */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     position: relative;
 }
 
+
 .imagen-Carrusel {
-    width: 100%;
+    width: auto;
     height: 100%;
-    object-fit: contain; /* Ajusta la imagen al tamaño del contenedor sin deformarla */
-    position: absolute;
+    object-fit: contain;
     transition: opacity 1s ease-in-out;
     opacity: 0;
+    position: absolute; /* Posiciona las imágenes una sobre otra */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la imagen */
 }
 
 .imagen-Carrusel.active {
     opacity: 1;
+    z-index: 1; /* Asegura que la imagen activa esté al frente */
 }
