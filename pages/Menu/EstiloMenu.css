@@ -1,15 +1,22 @@
 /* Estilos del menú */
-.cabeza-menu ul,
-.cuerpo-menu ul {
+.cabeza-menu {
+    position: fixed; /* Mantiene el menú fijo en la parte superior */
+    top: 0;
+    width: 100%; /* Ocupa todo el ancho de la página */
+    background-color: #021526; /* Opcional: para hacer el fondo del menú visible */
+    z-index: 1000; /* Asegura que el menú esté por encima del contenido */
+}
+
+.cuerpo-menu {
     list-style-type: none;
     padding: 0;
     text-align: right;
+    margin: 0;
     font-size: 20px; /* Ajusta el tamaño según sea necesario */
     user-select: none;
 }
 
-.cabeza-menu ul li,
-.cuerpo-menu ul li {
+.cuerpo-menu li {
     display: inline;
     margin: 10px; /* Ajusta según sea necesario */
     font-size: 20px; /* Ajusta el tamaño según sea necesario */
@@ -17,7 +24,7 @@
     cursor: default; /* Asegúrate de que el cursor sea default por defecto */
 }
 
-/*Botones*/
+/* Botones */
 .button-navbar {
     color: #E2E2B6;
     width: 15vh;
@@ -35,4 +42,13 @@
 .button-navbar.active {
     color: #021526;
     background-color: #6EACDA;
+}
+
+/* Asegura que el contenido principal no quede oculto detrás del menú */
+.main-content {
+    padding-top: 10vh; /* Ajusta según la altura de tu menú */
+}
+
+.contenidos {
+    padding-top: 10vh; /* Ajusta según la altura de tu menú */
 }
